@@ -291,7 +291,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"auth.newToken\",\n    \"params\": {\n        \"password\":\"{{authPassword}}\",\n        \"endpoints\":[\"/ext/bc/X\", \"/ext/info\"]\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"auth.newToken\",\n    \"params\": {\n        \"password\": \"{{authPassword}}\",\n        \"endpoints\": [\n            \"/ext/bc/X\",\n            \"/ext/info\"\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -310,7 +310,7 @@
 								"auth"
 							]
 						},
-						"description": "Creates a new authorization token that grants access to one or more API endpoints.\n [More info](https://docs.avax.network/build/apis/auth-api#auth-newtoken)"
+						"description": "Creates a new authorization token that grants access to one or more API endpoints.\n [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-newtoken)"
 					},
 					"response": []
 				},
@@ -321,7 +321,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"auth.revokeToken\",\n    \"params\": {\n        \"password\":\"password goes here\",\n        \"token\":\"token goes here\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"auth.revokeToken\",\n    \"params\": {\n        \"password\": \"{{authPassword}}\",\n        \"token\": \"token goes here\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -340,7 +340,7 @@
 								"auth"
 							]
 						},
-						"description": "Revoke a previously generated token. The given token will no longer grant access to any endpoint.\nIf the token is invalid, does nothing. [More info](https://docs.avax.network/build/apis/auth-api#auth-revoketoken)"
+						"description": "Revoke a previously generated token. The given token will no longer grant access to any endpoint.\nIf the token is invalid, does nothing. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-revoketoken)"
 					},
 					"response": []
 				},
@@ -351,7 +351,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"auth.changePassword\",\n    \"params\": {\n        \"oldPassword\":\"old password goes here\",\n        \"newPassword\":\"new password goes here\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"auth.changePassword\",\n    \"params\": {\n        \"oldPassword\": \"{{authPassword}}\",\n        \"newPassword\": \"new password goes here\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -370,7 +370,7 @@
 								"auth"
 							]
 						},
-						"description": "Change this node's authorization token password. Any authorization tokens created under an old password will become invalid. [More info](https://docs.avax.network/build/apis/auth-api#auth-changepassword)"
+						"description": "Change this node's authorization token password. Any authorization tokens created under an old password will become invalid. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-changepassword)"
 					},
 					"response": []
 				}

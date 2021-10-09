@@ -387,7 +387,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\"     : 1,\n    \"method\" : \"avm.buildGenesis\",\n    \"params\" : {\n        \"genesisData\": {\n            \"asset1\": {\n                \"name\": \"asset1\",\n                \"symbol\":\"MFCA\",\n                \"memo\": \"2Zc54v4ek37TEwu4LiV3j41PUMRd6acDDU3ZCVSxE7X\",\n                \"denomination\": 1, \n                \"initialState\": {\n                    \"fixedCap\" : [\n                        {\n                            \"amount\":100000,\n                            \"address\": \"local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u\"\n                        }\n                    ]\n                }\n            },\n            \"asset2\": {\n                \"name\": \"asset2\",\n                \"symbol\":\"MVCA\",\n                \"memo\": \"2Zc54v4ek37TEwu4LiV3j41PUMRd6acDDU3ZCVSxE7X\",\n                \"denomination\": 2, \n                \"initialState\": {\n                    \"variableCap\" : [\n                        {\n                            \"amount\":100000,\n                            \"address\": \"local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u\"\n                        }\n                    ]\n                }\n            }\n        },\n        \"networkId\": 12345\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.buildGenesis\",\n    \"params\": {\n        \"genesisData\": {\n            \"asset1\": {\n                \"name\": \"asset1\",\n                \"symbol\": \"MFCA\",\n                \"memo\": \"2Zc54v4ek37TEwu4LiV3j41PUMRd6acDDU3ZCVSxE7X\",\n                \"denomination\": 1,\n                \"initialState\": {\n                    \"fixedCap\": [\n                        {\n                            \"amount\": 100000,\n                            \"address\": \"local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u\"\n                        }\n                    ]\n                }\n            },\n            \"asset2\": {\n                \"name\": \"asset2\",\n                \"symbol\": \"MVCA\",\n                \"memo\": \"2Zc54v4ek37TEwu4LiV3j41PUMRd6acDDU3ZCVSxE7X\",\n                \"denomination\": 2,\n                \"initialState\": {\n                    \"variableCap\": [\n                        {\n                            \"amount\": 100000,\n                            \"address\": \"local18jma8ppw3nhx5r4ap8clazz0dps7rv5u00z96u\"\n                        }\n                    ]\n                }\n            }\n        },\n        \"encoding\": \"hex\",\n        \"networkId\": 12345\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -407,7 +407,7 @@
 								"avm"
 							]
 						},
-						"description": "Given a JSON representation of this Virtual Machine’s genesis state, create the byte representation of that state. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmbuildgenesis)"
+						"description": "Given a JSON representation of this Virtual Machine’s genesis state, create the byte representation of that state. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-buildgenesis)"
 					},
 					"response": []
 				},
@@ -418,7 +418,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"avm.createAddress\",\n    \"params\": {\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"avm.createAddress\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -443,44 +443,13 @@
 					"response": []
 				},
 				{
-					"name": "createAsset",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.createAsset\",\n    \"params\" :{\n        \"name\":\"myVariableCapAsset\",\n        \"symbol\":\"MFCA\",\n        \"denomination\": 0,  \n        \"minterSets\":[\n            {\n                \"minters\":[\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\"{{xchainAddress}}\"],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Create a new variable-cap, fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `createMintTx`, `signMintTx` and `issueTx`. The asset can be sent with `avm.send`. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-createvariablecapasset)"
-					},
-					"response": []
-				},
-				{
 					"name": "createFixedCapAsset",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.createFixedCapAsset\",\n    \"params\" :{\n        \"name\": \"Test Token\",\n        \"symbol\":\"TEST\",\n        \"denomination\": 0,  \n        \"initialHolders\": [\n            {\n                \"address\":\"{{xchainAddress}}\",\n                \"amount\":400\n            }\n        ],\n        \"from\": [\"{{xchainAddress}}\"],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.createFixedCapAsset\",\n    \"params\": {\n        \"name\": \"Test Token\",\n        \"symbol\": \"TEST\",\n        \"denomination\": 0,\n        \"initialHolders\": [\n            {\n                \"address\": \"{{xchainAddress}}\",\n                \"amount\": 400\n            }\n        ],\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -500,18 +469,18 @@
 								"X"
 							]
 						},
-						"description": "Create a new fixed-cap, fungible asset. A quantity of it is created at initialization and then no more is ever created. The asset can be sent with `avm.send`. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-createfixedcapasset)"
+						"description": "Create a new fixed-cap, fungible asset. A quantity of it is created at initialization and then no more is ever created. The asset can be sent with `avm.send`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-createfixedcapasset)"
 					},
 					"response": []
 				},
 				{
-					"name": "createNFTAsset",
+					"name": "mint",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.createNFTAsset\",\n    \"params\" :{\n        \"name\":\"Coincert\",\n        \"symbol\":\"TIXX\",\n        \"minterSets\":[\n            {\n                \"minters\":[\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            },\n            {\n                \"minters\":[\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\"{{xchainAddress}}\"],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.mint\",\n    \"params\": {\n        \"amount\": 10000000,\n        \"assetID\": \"2qnR9pLQTDZ9boSbcrcjS4n1DJJkzbkNsJzgwYvmRy8uv47fZT\",\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"to\": \"{{xchainAddress}}\",\n        \"minters\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -531,7 +500,7 @@
 								"X"
 							]
 						},
-						"description": "Create a new non-fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `mintTx` and `signMintTx`. The asset can be sent with `avm.sendNFT`. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-createnftasset)"
+						"description": "Mint units of a variable-cap asset created with `avm.createVariableCapAsset`.) [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mint)"
 					},
 					"response": []
 				},
@@ -542,7 +511,38 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.createVariableCapAsset\",\n    \"params\" :{\n        \"name\":\"myVariableCapAsset\",\n        \"symbol\":\"MFCA\",\n        \"denomination\": 0,  \n        \"minterSets\":[\n            {\n                \"minters\":[\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\"{{xchainAddress}}\"],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.createVariableCapAsset\",\n    \"params\": {\n        \"name\": \"myVariableCapAsset\",\n        \"symbol\": \"MFCA\",\n        \"denomination\": 0,\n        \"minterSets\": [\n            {\n                \"minters\": [\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X"
+							]
+						},
+						"description": "Create a new variable-cap, fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `createMintTx`, `signMintTx` and `issueTx`. The asset can be sent with `avm.send`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-createvariablecapasset)"
+					},
+					"response": []
+				},
+				{
+					"name": "createAsset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.createAsset\",\n    \"params\": {\n        \"name\": \"myVariableCapAsset\",\n        \"symbol\": \"MFCA\",\n        \"denomination\": 0,\n        \"minterSets\": [\n            {\n                \"minters\": [\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -567,13 +567,75 @@
 					"response": []
 				},
 				{
+					"name": "createNFTAsset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.createNFTAsset\",\n    \"params\": {\n        \"name\": \"Coincert\",\n        \"symbol\": \"TIXX\",\n        \"minterSets\": [\n            {\n                \"minters\": [\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            },\n            {\n                \"minters\": [\n                    \"{{xchainAddress}}\"\n                ],\n                \"threshold\": 1\n            }\n        ],\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X"
+							]
+						},
+						"description": "Create a new non-fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `avm.mintNFT`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-createnftasset)"
+					},
+					"response": []
+				},
+				{
+					"name": "mintNFT",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.mintNFT\",\n    \"params\": {\n        \"assetID\": \"2KGdt2HpFKpTH5CtGZjYt5XPWs6Pv9DLoRBhiFfntbezdRvZWP\",\n        \"payload\": \"2EWh72jYQvEJF9NLk\",\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"to\": \"{{xchainAddress}}\",\n        \"minters\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X"
+							]
+						},
+						"description": "Mint non-fungible tokens which were created with `avm.createNFTAsset`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mintnft)"
+					},
+					"response": []
+				},
+				{
 					"name": "export",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.export\",\n    \"params\" :{\n        \"from\": [\"{{xchainAddress}}\"],\n        \"to\":\"{{cchainbech32address}}\",\n        \"amount\": 4000001000000         ,\n        \"assetID\": \"AVAX\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.export\",\n    \"params\": {\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"to\": \"{{cchainbech32address}}\",\n        \"amount\": 4000001000000,\n        \"assetID\": \"AVAX\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -593,38 +655,7 @@
 								"X"
 							]
 						},
-						"description": "Export a non-AVAX asset from the X-Chain to the C-Chain. After calling this method, you must call the C-Chain’s `import` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexport)"
-					},
-					"response": []
-				},
-				{
-					"name": "exportAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.exportAVAX\",\n    \"params\" :{\n        \"from\": [\"{{xchainAddress}}\"],\n        \"to\":\"{{cchainbech32address}}\",\n        \"amount\": 4000001000000,\n        \"destinationChain\": \"C\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Export AVAX from the X-Chain to both the P-Chain as well as the C-Chain. After calling this method, you must call either the P-Chain’s `importAVAX` method or the C-Chain's `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-exportavax)"
+						"description": "Send a non-AVAX asset from the X-Chain to the C-Chain or P-Chain. After calling this method, you must call the destination chain’s `import` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-export)"
 					},
 					"response": []
 				},
@@ -635,7 +666,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.exportKey\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"address\": \"{{xchainAddress}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.exportKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"address\": \"{{xchainAddress}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -655,7 +686,7 @@
 								"X"
 							]
 						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-exportkey)"
+						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-exportkey)"
 					},
 					"response": []
 				},
@@ -666,7 +697,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.getAllBalances\",\n    \"params\" :{\n        \"address\":\"{{xchainAddress}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getAllBalances\",\n    \"params\": {\n        \"address\": \"{{xchainAddress}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -686,7 +717,7 @@
 								"X"
 							]
 						},
-						"description": "Get the balances of all assets controlled by a given address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-getallbalances)"
+						"description": "Get the balances of all assets controlled by a given address. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-getallbalances)"
 					},
 					"response": []
 				},
@@ -697,7 +728,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.getAssetDescription\",\n    \"params\" :{\n        \"assetID\" :\"{{avaxAssetId}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getAssetDescription\",\n    \"params\": {\n        \"assetID\": \"{{avaxAssetId}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -717,7 +748,7 @@
 								"X"
 							]
 						},
-						"description": "Get information about an asset. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-getassetdescription)"
+						"description": "Get information about an asset. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-getassetdescription)"
 					},
 					"response": []
 				},
@@ -759,7 +790,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"jsonrpc\":\"2.0\",\n  \"id\"     : 1,\n  \"method\" :\"avm.getBalance\",\n  \"params\" :{\n      \"address\":\"{{xchainAddress}}\",\n      \"assetID\": \"{{avaxAssetId}}\"\n  }\n} ",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getBalance\",\n    \"params\": {\n        \"address\": \"{{xchainAddress}}\",\n        \"assetID\": \"{{avaxAssetId}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -779,7 +810,69 @@
 								"X"
 							]
 						},
-						"description": "Get the balance of an asset controlled by a given address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-getbalance)"
+						"description": "Get the balance of an asset controlled by a given address. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-getbalance)"
+					},
+					"response": []
+				},
+				{
+					"name": "getAddressTxs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"    <table bgcolor=\"#FFFFFF\">",
+									"        <tr>",
+									"            <th>Name</th>",
+									"            <th>Email</th>",
+									"        </tr>",
+									"",
+									"        {{#each response}}",
+									"            <tr>",
+									"                <td>{{name}}</td>",
+									"                <td>{{email}}</td>",
+									"            </tr>",
+									"        {{/each}}",
+									"    </table>",
+									"`;",
+									"",
+									"// Set visualizer",
+									"pm.visualizer.set(template, {",
+									"    // Pass the response body parsed as JSON as `data`",
+									"    response: pm.response.json()",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getAddressTxs\",\n    \"params\": {\n        \"address\": \"{{xchainAddress}}\",\n        \"assetID\": \"{{avaxAssetId}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X"
+							]
+						},
+						"description": "Returns all transactions that change the balance of the given address. A transaction is said to change an address's balance if either is true:\n* A UTXO that the transaction consumes was at least partially owned by the address.\n* A UTXO that the transaction produces is at least partially owned by the address.\n\nNote: Indexing (`index-transactions`) must be enabled in the X-chain config. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-get-address-txs-api)"
 					},
 					"response": []
 				},
@@ -790,7 +883,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.getTx\",\n    \"params\" :{\n        \"txID\":\"2QouvFWUbjuySRxeX5xMbNCuAaKWfbk5FeEa2JmoF85RKLk2dD\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getTx\",\n    \"params\": {\n        \"txID\": \"2ZW5CR9sWz8v2vjJ7w7zikHt2MG9AN6eovZcyGc8HWt9gHCkuc\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -810,7 +903,7 @@
 								"X"
 							]
 						},
-						"description": "Returns the specified transaction [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-gettx)"
+						"description": "Returns the specified transaction [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-gettx)"
 					},
 					"response": []
 				},
@@ -821,7 +914,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getTxStatus\",\n    \"params\": {\n        \"txID\": \"2HHr7xUJgWiLESV7g8T3oWfWvdpWJXd4Hctj6U3KhzUN6EsgBG\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getTxStatus\",\n    \"params\": {\n        \"txID\": \"2ZW5CR9sWz8v2vjJ7w7zikHt2MG9AN6eovZcyGc8HWt9gHCkuc\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -841,7 +934,7 @@
 								"X"
 							]
 						},
-						"description": "Get the status of a transaction sent to the network. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-gettxstatus)"
+						"description": "Get the status of a transaction sent to the network. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-gettxstatus)"
 					},
 					"response": []
 				},
@@ -852,7 +945,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.getUTXOs\",\n    \"params\" :{\n        \"addresses\":[\"{{xchainAddress}}\"],\n        \"limit\": 5,\n        \"sourceChain\": \"X\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.getUTXOs\",\n    \"params\": {\n        \"addresses\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"limit\": 5,\n        \"encoding\": \"hex\",\n        \"sourceChain\": \"X\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -883,7 +976,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.import\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"sourceChain\": \"P\",\n        \"to\":\"{{xchainAddress}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.import\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"sourceChain\": \"C\",\n        \"to\": \"{{xchainAddress}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -903,38 +996,7 @@
 								"X"
 							]
 						},
-						"description": "Finalize a transfer of AVAX from either the P-Chain to the X-Chain or the C-Chain to the X-Chain.\n\nBefore this method is called, you must call either the P-Chain’s `exportAVAX` method or the C-Chain’s `exportAVAX` method to initiate the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmimportavax)"
-					},
-					"response": []
-				},
-				{
-					"name": "importAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.importAVAX\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"sourceChain\": \"C\",\n        \"to\":\"{{xchainAddress}}\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Finalize a transfer of AVAX from either the P-Chain to the X-Chain or the C-Chain to the X-Chain.\n\nBefore this method is called, you must call either the P-Chain’s `exportAVAX` method or the C-Chain’s `exportAVAX` method to initiate the transfer. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-importavax)"
+						"description": "Finalize a transfer of AVAX from the P-Chain or C-Chain to the X-Chain. \n\nBefore this method is called, you must call the P-Chain’s `platform.exportAVAX` or C-Chain’s `avax.export` method to initiate the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-import)"
 					},
 					"response": []
 				},
@@ -945,7 +1007,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.issueTx\",\n    \"params\" :{\n        \"tx\":\"6sTENqXfk3gahxkJbEPsmX9eJTEFZRSRw83cRJqoHWBiaeAhVbz9QV4i6SLd6Dek4eLsojeR8FbT3arFtsGz9ycpHFaWHLX69edJPEmj2tPApsEqsFd7wDVp7fFxkG6HmySR\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.issueTx\",\n    \"params\": {\n        \"tx\": \"6sTENqXfk3gahxkJbEPsmX9eJTEFZRSRw83cRJqoHWBiaeAhVbz9QV4i6SLd6Dek4eLsojeR8FbT3arFtsGz9ycpHFaWHLX69edJPEmj2tPApsEqsFd7wDVp7fFxkG6HmySR\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -976,7 +1038,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.importKey\",\n    \"params\" :{\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"privateKey\":\"{{privkey}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.importKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"privateKey\": \"{{privkey}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -996,7 +1058,38 @@
 								"X"
 							]
 						},
-						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-importkey)"
+						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-importkey)"
+					},
+					"response": []
+				},
+				{
+					"name": "issueTx",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.issueTx\",\n    \"params\": {\n        \"tx\": \"22zd7kFnVjtHfhVJwHbxPcpgorYH5CFrqet56A1wwRdtCzKfPy\",\n        \"encoding\": \"hex\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X"
+							]
+						},
+						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-importkey)"
 					},
 					"response": []
 				},
@@ -1007,7 +1100,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"avm.listAddresses\",\n    \"params\": {\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"avm.listAddresses\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1027,69 +1120,7 @@
 								"X"
 							]
 						},
-						"description": "List addresses controlled by the given user. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-listaddresses)"
-					},
-					"response": []
-				},
-				{
-					"name": "mint",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.mint\",\n    \"params\" :{\n        \"amount\": 10000000,\n        \"assetID\": \"2qnR9pLQTDZ9boSbcrcjS4n1DJJkzbkNsJzgwYvmRy8uv47fZT\",\n        \"from\": [\"{{xchainAddress}}\"],\n        \"to\": \"{{xchainAddress}}\",\n        \"minters\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\" \n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Create an unsigned transaction to mint more of a variable-cap asset (an asset created with `avm.createVariableCapAsset`.) [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-mint)"
-					},
-					"response": []
-				},
-				{
-					"name": "mintNFT",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avm.mintNFT\",\n    \"params\" :{\n        \"assetID\":\"2KGdt2HpFKpTH5CtGZjYt5XPWs6Pv9DLoRBhiFfntbezdRvZWP\",\n        \"payload\":\"2EWh72jYQvEJF9NLk\",\n        \"from\": [\"{{xchainAddress}}\"],\n        \"to\":\"{{xchainAddress}}\",\n        \"minters\":[\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Mint more of a non-fungible asset (an asset created with `avm.createNFTAsset`.) [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-mintnft)"
+						"description": "List addresses controlled by the given user. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-listaddresses)"
 					},
 					"response": []
 				},
@@ -1100,38 +1131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.send\",\n    \"params\" :{ \n        \"assetID\" : \"{{avaxAssetId}}\",\n        \"amount\"  : 2000000000,\n        \"from\"    : [\"{{xchainAddress}}\"],\n        \"to\"      : \"X-local1q8ayy4dxap07fvm3k8fydgsac3wt4eh933pmt6\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\"    : \"\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\" \n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Send a quantity of an asset to an address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-send)"
-					},
-					"response": []
-				},
-				{
-					"name": "sendAsManager",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.sendAsManager\",\n    \"params\" :{ \n        \"assetID\" : \"{{avaxAssetId}}\",\n        \"amount\"  : 2000000,\n        \"feeFrom\": [\"{{xchainAddress}}\"],\n        \"feeChangeAddr\": \"{{xchainAddress}}\",\n        \"from\"    : [\"{{xchainAddress}}\"],\n        \"to\"      : \"{{xchainAddress}}\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\"    : \"{{memo}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.send\",\n    \"params\": {\n        \"assetID\": \"{{avaxAssetId}}\",\n        \"amount\": 2000000000,\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"to\": \"X-local1q8ayy4dxap07fvm3k8fydgsac3wt4eh933pmt6\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\": \"\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1162,7 +1162,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.sendMultiple\",\n    \"params\" :{ \n        \"outputs\": [\n            {\n                \"assetID\" : \"{{avaxAssetId}}\",\n                \"to\"      : \"{{xchainAddress}}\",\n                \"amount\"  : 1000000000\n            }\n        ],\n        \"from\"    : [\"{{xchainAddress}}\"],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\"    : \"{{memo}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.sendMultiple\",\n    \"params\": {\n        \"outputs\": [\n            {\n                \"assetID\": \"{{avaxAssetId}}\",\n                \"to\": \"{{xchainAddress}}\",\n                \"amount\": 1000000000\n            }\n        ],\n        \"from\": [\n            \"{{xchainAddress}}\"\n        ],\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\": \"{{memo}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1182,7 +1182,7 @@
 								"X"
 							]
 						},
-						"description": "Send a quantity of an asset to an address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-sendmultiple)"
+						"description": "Sends multiple transfers of `amount` of `assetID`, to a specified address from a list of owned addresses.\n[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-sendmultiple)"
 					},
 					"response": []
 				},
@@ -1213,18 +1213,18 @@
 								"X"
 							]
 						},
-						"description": "Send a quantity of an asset to an address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-sendnft)"
+						"description": "Send a non-fungible token.[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-sendnft)"
 					},
 					"response": []
 				},
 				{
-					"name": "updateManagedAsset",
+					"name": "wallet.issueTx",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"avm.updateManagedAsset\",\n    \"params\" :{ \n        \"assetID\" : {{avaxAssetId}},\n        \"frozen\": true,\n        \"manager\":{\n            \"threshold\": 1,\n            \"addresses\": [\n                \"{{xchainAddress}}\"\n            ]\n        },\n        \"from\"    : [\"{{xchainAddress}}\"],\n        \"to\"      : \"{{xchainAddress}}\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"memo\"    : \"{{memo}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\" \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"wallet.issueTx\",\n    \"params\": {\n        \"tx\": \"22zd7kFnVjtHfhVJwHbxPcpgorYH5CFrqet56A1wwRdtCzKfPy\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1232,7 +1232,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X/wallet",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{host}}"
@@ -1241,10 +1241,75 @@
 							"path": [
 								"ext",
 								"bc",
-								"X"
+								"X",
+								"wallet"
 							]
 						},
-						"description": "Send a quantity of an asset to an address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-send)"
+						"description": "Send a signed transaction to the network and assume the tx will be accepted. encoding specifies the format of the signed transaction. Can be either \"cb58\" or \"hex\". Defaults to \"cb58\".[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-issuetx)"
+					},
+					"response": []
+				},
+				{
+					"name": "wallet.send",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"wallet.send\",\n    \"params\": {\n        \"assetID\": \"AVAX\",\n        \"amount\": 10000,\n        \"to\": \"{{xchainAddress}}\",\n        \"memo\": \"hi, mom!\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X/wallet",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X",
+								"wallet"
+							]
+						},
+						"description": "Send a quantity of an asset to an address and assume the tx will be accepted so that future calls can use the modified UTXO set.[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-send)"
+					},
+					"response": []
+				},
+				{
+					"name": "wallet.sendMultiple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"wallet.send\",\n    \"params\": {\n        \"assetID\": \"AVAX\",\n        \"amount\": 10000,\n        \"to\": \"{{xchainAddress}}\",\n        \"memo\": \"hi, mom!\",\n        \"changeAddr\": \"{{xchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X/wallet",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"X",
+								"wallet"
+							]
+						},
+						"description": "Send multiple transfers of `amount` of `assetID`, to a specified address from a list of owned of addresses and assume the tx will be accepted so that future calls can use the modified UTXO set.\n[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-sendmultiple)"
 					},
 					"response": []
 				}
@@ -2285,13 +2350,13 @@
 			"name": "Health",
 			"item": [
 				{
-					"name": "health",
+					"name": "getLiveness",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"health.health\"\n}",
+							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"health.getLiveness\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2310,7 +2375,7 @@
 								"health"
 							]
 						},
-						"description": "Get health check on this node. [More info](https://docs.avax.network/build/apis/health-api#health-health)"
+						"description": "Get health check on this node. [More info](https://docs.avax.network/build/apis/health-api#health-getliveness)"
 					},
 					"response": []
 				}

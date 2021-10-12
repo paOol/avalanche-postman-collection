@@ -1864,38 +1864,6 @@
 					"response": []
 				},
 				{
-					"name": "exportAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"method\": \"avax.exportAVAX\",\n    \"params\": {\n        \"from\": [\n            \"{{cchainAddress}}\"\n        ],\n        \"to\": \"{{xchainAddress}}\",\n        \"amount\": 999000000,\n        \"destinationChain\": \"X\",\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"avax"
-							]
-						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.exportavax)"
-					},
-					"response": []
-				},
-				{
 					"name": "exportKey",
 					"request": {
 						"method": "POST",
@@ -2318,13 +2286,13 @@
 			"name": "Health",
 			"item": [
 				{
-					"name": "getLiveness",
+					"name": "health",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"health.getLiveness\"\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"health.health\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2343,7 +2311,7 @@
 								"health"
 							]
 						},
-						"description": "Get health check on this node. [More info](https://docs.avax.network/build/apis/health-api#health-getliveness)"
+						"description": "Get health check on this node. [More info](https://docs.avax.network/build/avalanchego-apis/health-api#health.health)"
 					},
 					"response": []
 				}
@@ -2363,7 +2331,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getLastAccepted\",\n    \"params\": {\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getLastAccepted\",\n    \"params\": {\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2384,7 +2352,7 @@
 										"tx"
 									]
 								},
-								"description": "Get the most recently accepted container. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getlastaccepted)"
+								"description": "Get the most recently accepted container. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.getlastaccepted)"
 							},
 							"response": []
 						},
@@ -2395,7 +2363,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getContainerByIndex\",\n    \"params\": {\n        \"index\":0,\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByIndex\",\n    \"params\": {\n        \"index\": 0,\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2416,7 +2384,7 @@
 										"tx"
 									]
 								},
-								"description": "Get container by index. The first container accepted is at index 0, the second is at index 1, etc. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
+								"description": "Get container by index. The first container accepted is at index 0, the second is at index 1, etc. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.getcontainerbyindex)"
 							},
 							"response": []
 						},
@@ -2427,7 +2395,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getContainerRange\",\n    \"params\": {\n        \"startIndex\":0,\n        \"numtoFetch\":10,\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerRange\",\n    \"params\": {\n        \"startIndex\": 0,\n        \"numtoFetch\": 10,\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2448,7 +2416,7 @@
 										"tx"
 									]
 								},
-								"description": "Returns containers with indices in [startIndex, startIndex+1, ... , startIndex + numToFetch - 1]. numToFetch must be in \\[0,1024\\] [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerrange)"
+								"description": "Returns containers with indices in [startIndex, startIndex+1, ... , startIndex + numToFetch - 1]. numToFetch must be in \\[0,1024\\] [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.getcontainerrange)"
 							},
 							"response": []
 						},
@@ -2459,7 +2427,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getIndex\",\n    \"params\": {\n        \"containerID\":\"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getIndex\",\n    \"params\": {\n        \"containerID\": \"e9dvVDRYTA7iRg3ChoBpiXi83USLQFQNtpSmjWb5Ya9LW6DW\",\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2480,7 +2448,7 @@
 										"tx"
 									]
 								},
-								"description": "Get a container's index. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getindex)"
+								"description": "Get a container's index. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.getindex)"
 							},
 							"response": []
 						},
@@ -2491,7 +2459,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.isAccepted\",\n    \"params\": {\n        \"containerID\":\"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.isAccepted\",\n    \"params\": {\n        \"containerID\": \"e9dvVDRYTA7iRg3ChoBpiXi83USLQFQNtpSmjWb5Ya9LW6DW\",\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2512,7 +2480,7 @@
 										"tx"
 									]
 								},
-								"description": "Returns true if the container is in this index. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-isaccepted)"
+								"description": "Returns true if the container is in this index. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.isaccepted)"
 							},
 							"response": []
 						}
@@ -2528,7 +2496,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getLastAccepted\",\n    \"params\": {\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getLastAccepted\",\n    \"params\": {\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2560,7 +2528,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getContainerByIndex\",\n    \"params\": {\n        \"index\":0,\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByIndex\",\n    \"params\": {\n        \"index\": 0,\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2592,7 +2560,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.getContainerRange\",\n    \"params\": {\n        \"startIndex\":0,\n        \"numtoFetch\":10,\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerRange\",\n    \"params\": {\n        \"startIndex\": 0,\n        \"numtoFetch\": 10,\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2656,7 +2624,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"index.isAccepted\",\n    \"params\": {\n        \"containerID\":\"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\":\"hex\"\n    }\n}",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.isAccepted\",\n    \"params\": {\n        \"containerID\": \"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\": \"hex\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3045,7 +3013,7 @@
 								"info"
 							]
 						},
-						"description": "Given a blockchain’s alias, get its ID. [More info](https://docs.avax.network/build/apis/info-api#info-getblockchainid)"
+						"description": "Given a blockchain’s alias, get its ID. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getblockchainid)"
 					},
 					"response": []
 				},
@@ -3056,7 +3024,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.getNetworkID\",\n    \"params\" :{\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.getNetworkID\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3075,7 +3043,7 @@
 								"info"
 							]
 						},
-						"description": "Get the ID of the network this node is participating in. [More info](https://docs.avax.network/build/apis/info-api#info-getnetworkid)"
+						"description": "Get the ID of the network this node is participating in. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnetworkid)"
 					},
 					"response": []
 				},
@@ -3086,7 +3054,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.getNetworkName\",\n    \"params\" :{\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.getNetworkName\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3105,7 +3073,7 @@
 								"info"
 							]
 						},
-						"description": "Get the name of the network this node is participating in. [More info](https://docs.avax.network/build/apis/info-api#info-getnetworkname)"
+						"description": "Get the name of the network this node is participating in. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnetworkname)"
 					},
 					"response": []
 				},
@@ -3135,7 +3103,7 @@
 								"info"
 							]
 						},
-						"description": "Get the name of the network this node is participating in. [More info](https://docs.avax.network/build/apis/info-api#info-getnodeid)"
+						"description": "Get the name of the network this node is participating in. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnodeid)"
 					},
 					"response": []
 				},
@@ -3146,7 +3114,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.getNodeIP\",\n    \"params\" :{\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.getNodeIP\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3165,7 +3133,7 @@
 								"info"
 							]
 						},
-						"description": "Get the IP of this node. [More info](https://docs.avax.network/build/apis/info-api#info-getnodeip)"
+						"description": "Get the IP of this node. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnodeip)"
 					},
 					"response": []
 				},
@@ -3176,7 +3144,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.getNodeVersion\",\n    \"params\" :{\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.getNodeVersion\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3195,7 +3163,7 @@
 								"info"
 							]
 						},
-						"description": "Get the version of this node. [More info](https://docs.avax.network/build/apis/info-api#info-getnodeversion)"
+						"description": "Get the version of this node. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnodeversion)"
 					},
 					"response": []
 				},
@@ -3206,7 +3174,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.isBootstrapped\",\n    \"params\": {\n        \"chain\": \"X\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.isBootstrapped\",\n    \"params\": {\n        \"chain\": \"X\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3225,37 +3193,7 @@
 								"info"
 							]
 						},
-						"description": "Check whether a given chain is done bootstrapping. [More info](https://docs.avax.network/build/apis/info-api#info-isbootstrapped)"
-					},
-					"response": []
-				},
-				{
-					"name": "getTxFee",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.getTxFee\",\n    \"params\": {\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/info",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"info"
-							]
-						},
-						"description": "Get the transaction fee of the network. [More info](https://docs.avax.network/v1.0/en/api/info/#infogettxfee)"
+						"description": "Check whether a given chain is done bootstrapping. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.isbootstrapped)"
 					},
 					"response": []
 				},
@@ -3266,7 +3204,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"info.peers\",\n    \"params\" :{\n        \"nodeIDs\": []\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.peers\",\n    \"params\": {\n        \"nodeIDs\": []\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3285,7 +3223,37 @@
 								"info"
 							]
 						},
-						"description": "Get description of peer connections. [More info](https://docs.avax.network/build/apis/info-api#info-peers)"
+						"description": "Get description of peer connections. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.peers)"
+					},
+					"response": []
+				},
+				{
+					"name": "getTxFee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"info.getTxFee\",\n    \"params\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/info",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"info"
+							]
+						},
+						"description": "Get the transaction fee of the network. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.gettxfee)"
 					},
 					"response": []
 				}
@@ -3302,7 +3270,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"ipcs.publishBlockchain\",\n    \"params\":{\n        \"blockchainID\":\"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"ipcs.publishBlockchain\",\n    \"params\": {\n        \"blockchainID\": \"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3321,7 +3289,7 @@
 								"ipcs"
 							]
 						},
-						"description": "Register a blockchain so it publishes accepted vertices to a Unix domain socket. [More info](https://docs.avax.network/build/apis/ipc-api#ipcs-publishblockchain)"
+						"description": "Register a blockchain so it publishes accepted vertices to a Unix domain socket. [More info](https://docs.avax.network/build/avalanchego-apis/ipc-api#ipcs.publishblockchain)"
 					},
 					"response": []
 				},
@@ -3332,7 +3300,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"ipcs.unpublishBlockchain\",\n    \"params\":{\n        \"blockchainID\":\"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"ipcs.unpublishBlockchain\",\n    \"params\": {\n        \"blockchainID\": \"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3351,7 +3319,7 @@
 								"ipcs"
 							]
 						},
-						"description": "Deregister a blockchain so that it no longer publishes to a Unix domain socket. [More info](https://docs.avax.network/build/apis/ipc-api#ipcs-unpublishblockchain)"
+						"description": "Deregister a blockchain so that it no longer publishes to a Unix domain socket. [More info](https://docs.avax.network/build/avalanchego-apis/ipc-api#ipcs.unpublishblockchain)"
 					},
 					"response": []
 				}
@@ -3368,7 +3336,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"keystore.createUser\",\n    \"params\" :{\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"keystore.createUser\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3387,7 +3355,7 @@
 								"keystore"
 							]
 						},
-						"description": "Create a new user with the specified username and password. [More info](https://docs.avax.network/build/apis/keystore-api#keystore-createuser)"
+						"description": "Create a new user with the specified username and password. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.createuser)"
 					},
 					"response": []
 				},
@@ -3398,7 +3366,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"keystore.deleteUser\",\n    \"params\" : {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"keystore.deleteUser\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3417,7 +3385,7 @@
 								"keystore"
 							]
 						},
-						"description": "Delete a user. [More info](https://docs.avax.network/build/apis/keystore-api#keystore-deleteuser)"
+						"description": "Delete a user. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.deleteuser)"
 					},
 					"response": []
 				},
@@ -3447,7 +3415,7 @@
 								"keystore"
 							]
 						},
-						"description": "Export a user. The user can be imported to another node with `keystore.importUser`. The user’s password remains encrypted. [More info](https://docs.avax.network/build/apis/keystore-api#keystore-exportuser)"
+						"description": "Export a user. The user can be imported to another node with `keystore.importUser`. The user’s password remains encrypted. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.exportuser)"
 					},
 					"response": []
 				},
@@ -3477,7 +3445,7 @@
 								"keystore"
 							]
 						},
-						"description": "Import a user. `password` must match the user’s password. `username` doesn’t have to match the username `user` had when it was exported. [More info](https://docs.avax.network/build/apis/keystore-api#keystore-importuser)"
+						"description": "Import a user. `password` must match the user’s password. `username` doesn’t have to match the username `user` had when it was exported. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.importuser)"
 					},
 					"response": []
 				},
@@ -3488,7 +3456,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"keystore.listUsers\"\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"keystore.listUsers\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3507,7 +3475,7 @@
 								"keystore"
 							]
 						},
-						"description": "List the users in this keystore. [More info](https://docs.avax.network/build/apis/keystore-api#keystore-listusers)"
+						"description": "List the users in this keystore. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.listusers)"
 					},
 					"response": []
 				}

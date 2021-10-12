@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "72e39b9d-49f8-416f-89db-118fcb994d21",
+		"_postman_id": "8a8827f8-1e42-4f65-84b7-7fdd46eba0e3",
 		"name": "Avalanche",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1347,167 +1347,7 @@
 								"rpc"
 							]
 						},
-						"description": "Get the base fee for the next block. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#eth_baseFee)"
-					},
-					"response": []
-				},
-				{
-					"name": "eth_blockNumber",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_blockNumber\",\n    \"params\": [],\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"rpc"
-							]
-						},
-						"description": "Getting the most recent block number. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#getting-the-most-recent-block-number)"
-					},
-					"response": []
-				},
-				{
-					"name": "eth_call",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_call\",\n    \"params\": [\n        {\n            \"to\": \"0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7\",\n            \"data\": \"0xc92aecc4\"\n        },\n        \"latest\"\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"rpc"
-							]
-						},
-						"description": "Call a contract. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#call-a-contract)"
-					},
-					"response": []
-				},
-				{
-					"name": "eth_chainId",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_chainId\",\n    \"params\": [],\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"rpc"
-							]
-						},
-						"description": "Not well documented in JSON-RPC references. See instead EIP694. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#getting-the-chain-id)"
-					},
-					"response": []
-				},
-				{
-					"name": "eth_getAssetBalance",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_getAssetBalance\",\n    \"params\": [\n        \"{{cchainAddress}}\",\n        \"latest\",\n        \"2W4XDTMrQJm7YALcnCL4krU7JpoGQQaDkTdn2HbzpsqombHRaB\"\n    ],\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"rpc"
-							]
-						},
-						"description": "Getting an account’s non-AVAX balance. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-an-accounts-non-avax-balance)"
-					},
-					"response": []
-				},
-				{
-					"name": "eth_getBalance",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_getBalance\",\n    \"params\": [\n        \"{{cchainAddress}}\",\n        \"latest\"\n    ],\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"rpc"
-							]
-						},
-						"description": "Getting an account’s balance. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#getting-an-accounts-balance)"
+						"description": "Get the base fee for the next block. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_basefee)"
 					},
 					"response": []
 				},
@@ -1539,18 +1379,18 @@
 								"rpc"
 							]
 						},
-						"description": "Get the priority fee needed to be included in a block. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#eth_maxPriorityFeePerGas)"
+						"description": "Get the priority fee needed to be included in a block. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_maxpriorityfeepergas)"
 					},
 					"response": []
 				},
 				{
-					"name": "eth_signTransaction",
+					"name": "eth_blockNumber",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_signTransaction\",\n    \"params\": [{\n        \"from\": \"0xa64b27635c967dfe9674926bc004626163ddce97\",\n        \"to\": \"0x1c5b0e12e90e9c52235babad76cfccab2519bb95\",\n        \"gas\": \"0x5208\",\n        \"gasPrice\": \"0x0\",\n        \"nonce\": \"0x0\",\n        \"value\": \"0x0\"\n    }],\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_blockNumber\",\n    \"params\": [],\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1571,7 +1411,167 @@
 								"rpc"
 							]
 						},
-						"description": "Signing a transaction.\n\nThis method will create a signed transaction, but will not publish it automatically to the network. Instead, the `raw` result output should be used with `eth_sendRawTransaction` to execute the transaction. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#signing-a-transaction)"
+						"description": "Getting the most recent block number. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_blocknumber)"
+					},
+					"response": []
+				},
+				{
+					"name": "eth_call",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_call\",\n    \"params\": [\n        {\n            \"to\": \"0x197E90f9FAD81970bA7976f33CbD77088E5D7cf7\",\n            \"data\": \"0xc92aecc4\"\n        },\n        \"latest\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"rpc"
+							]
+						},
+						"description": "Call a contract. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_call)"
+					},
+					"response": []
+				},
+				{
+					"name": "eth_chainId",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_chainId\",\n    \"params\": [],\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"rpc"
+							]
+						},
+						"description": "Get the chain ID. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_chainid)"
+					},
+					"response": []
+				},
+				{
+					"name": "eth_getAssetBalance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_getAssetBalance\",\n    \"params\": [\n        \"{{cchainAddress}}\",\n        \"latest\",\n        \"2W4XDTMrQJm7YALcnCL4krU7JpoGQQaDkTdn2HbzpsqombHRaB\"\n    ],\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"rpc"
+							]
+						},
+						"description": "Getting an account’s non-AVAX balance. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getassetbalance)"
+					},
+					"response": []
+				},
+				{
+					"name": "eth_getBalance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_getBalance\",\n    \"params\": [\n        \"{{cchainAddress}}\",\n        \"latest\"\n    ],\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"rpc"
+							]
+						},
+						"description": "Getting an account’s AVAX balance. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBalance)"
+					},
+					"response": []
+				},
+				{
+					"name": "eth_signTransaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"eth_signTransaction\",\n    \"params\": [\n        {\n            \"from\": \"0xa64b27635c967dfe9674926bc004626163ddce97\",\n            \"to\": \"0x1c5b0e12e90e9c52235babad76cfccab2519bb95\",\n            \"gas\": \"0x5208\",\n            \"gasPrice\": \"0x0\",\n            \"nonce\": \"0x0\",\n            \"value\": \"0x0\"\n        }\n    ],\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/rpc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"rpc"
+							]
+						},
+						"description": "This method will create a signed transaction, but will not publish it automatically to the network. Instead, the `raw` result output should be used with `eth_sendRawTransaction` to execute the transaction. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_signTransaction)"
 					},
 					"response": []
 				},
@@ -1603,7 +1603,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting an account’s nonce. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#getting-an-accounts-nonce)"
+						"description": "Get an account’s transaction count to be used as a nonce. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getTransactionCount)"
 					},
 					"response": []
 				},
@@ -1635,7 +1635,7 @@
 								"rpc"
 							]
 						},
-						"description": "Send a raw transaction.\n\nExample below shows a raw transaction published to the network and its associated transaction hash. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#send-a-raw-transaction)"
+						"description": "Send a pre-signed transaction. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_sendRawTransaction)"
 					},
 					"response": []
 				},
@@ -1667,7 +1667,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting a block by hash. [More info](https://docs.avax.network/build/apis/contract-chain-c-chain-api#getting-a-block-by-hash)"
+						"description": "Getting a block by hash. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBlockByHash)"
 					},
 					"response": []
 				},
@@ -1731,7 +1731,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting a transaction by hash. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-transaction-by-hash)"
+						"description": "Returns information about a transaction for a given hash. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getTransactionByHash)"
 					},
 					"response": []
 				},
@@ -1763,103 +1763,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting a transaction receipt. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-transaction-receipt)"
-					},
-					"response": []
-				},
-				{
-					"name": "export",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"method\" :\"avax.export\",\n    \"params\" :{\n        \"from\": [\"{{cchainAddress}}\"],\n        \"to\":\"{{xchainAddress}}\",\n        \"amount\": 25,\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"assetID\": \"FSznYPiqrJ3WtGurw54re47oDpGXQ8THc8yZ4fEDX4G8cGqbn\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\"\n    },\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"avax"
-							]
-						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
-					},
-					"response": []
-				},
-				{
-					"name": "exportAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"method\" :\"avax.exportAVAX\",\n    \"params\" :{\n        \"from\": [\"{{cchainAddress}}\"],\n        \"to\":\"{{xchainAddress}}\",\n        \"amount\": 999000000,\n        \"destinationChain\": \"X\",\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\" \n    },\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"avax"
-							]
-						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
-					},
-					"response": []
-				},
-				{
-					"name": "exportKey",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"method\" :\"avax.exportKey\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"address\": \"{{cchainAddress}}\"\n    },\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"avax"
-							]
-						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportkey)\n\n"
+						"description": "Returns the receipt of a transaction by transaction hash. Note that the receipt is not available for pending transactions.. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getTransactionReceipt)"
 					},
 					"response": []
 				},
@@ -1870,7 +1774,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avax.getAtomicTx\",\n    \"params\": {\n        \"txID\": \"2GD5SRYJQr2kw5jE73trBFiAgVQyrCaeg223TaTyJFYXf2kPty\",\n        \"encoding\": \"hex\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avax.getAtomicTx\",\n    \"params\": {\n        \"txID\": \"n1D9UkjiryEBtW8qznD1TDkGEuYRFj5tLaS8NhVpMLYsx1FHa\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1923,7 +1827,103 @@
 								"avax"
 							]
 						},
-						"description": "Get the status of a transaction sent to the network. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgettxstatus)"
+						"description": "Get the status of an atomic transaction sent to the network. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.getatomictxstatus)"
+					},
+					"response": []
+				},
+				{
+					"name": "export",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"method\": \"avax.export\",\n    \"params\": {\n        \"from\": [\n            \"{{cchainAddress}}\"\n        ],\n        \"to\": \"{{xchainAddress}}\",\n        \"amount\": 25,\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"assetID\": \"FSznYPiqrJ3WtGurw54re47oDpGXQ8THc8yZ4fEDX4G8cGqbn\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"avax"
+							]
+						},
+						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.export)"
+					},
+					"response": []
+				},
+				{
+					"name": "exportAVAX",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"method\": \"avax.exportAVAX\",\n    \"params\": {\n        \"from\": [\n            \"{{cchainAddress}}\"\n        ],\n        \"to\": \"{{xchainAddress}}\",\n        \"amount\": 999000000,\n        \"destinationChain\": \"X\",\n        \"changeAddr\": \"{{cchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"avax"
+							]
+						},
+						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.exportavax)"
+					},
+					"response": []
+				},
+				{
+					"name": "exportKey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"method\" :\"avax.exportKey\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"address\": \"{{cchainAddress}}\"\n    },\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"C",
+								"avax"
+							]
+						},
+						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.exportkey)"
 					},
 					"response": []
 				},
@@ -1955,7 +1955,7 @@
 								"avax"
 							]
 						},
-						"description": "Get the UTXOs that reference a given address. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetutxos)"
+						"description": "Get the UTXOs that reference a given address. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.getutxos)"
 					},
 					"response": []
 				},
@@ -1966,7 +1966,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"method\": \"avax.import\",\n    \"params\": {\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"sourceChain\": \"X\",\n        \"to\":\"{{cchainAddress}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
+							"raw": "{\n    \"method\": \"avax.import\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"sourceChain\": \"X\",\n        \"to\": \"{{cchainAddress}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1987,39 +1987,7 @@
 								"avax"
 							]
 						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmexportavax)"
-					},
-					"response": []
-				},
-				{
-					"name": "importAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"method\": \"avax.importAVAX\",\n    \"params\": {\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"sourceChain\": \"X\",\n        \"to\":\"{{cchainAddress}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/C/avax",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"C",
-								"avax"
-							]
-						},
-						"description": "Import AVAX from the X-Chain to an account on the C-Chain.\nBefore calling this method, you must call the X-Chain’s `exportAVAX` method to initiate the transfer. [More info](https://docs.avax.network/v1.0/en/api/evm/#evmimportavax)"
+						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.import)"
 					},
 					"response": []
 				},
@@ -2030,7 +1998,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"method\": \"avax.importKey\",\n    \"params\": {\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"privateKey\":\"{{privkey}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
+							"raw": "{\n    \"method\": \"avax.importKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"privateKey\": \"{{privkey}}\"\n    },\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2051,7 +2019,7 @@
 								"avax"
 							]
 						},
-						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmimportkey)"
+						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.importkey)"
 					},
 					"response": []
 				},
@@ -2062,7 +2030,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     : 1,\n    \"method\" :\"avax.issueTx\",\n    \"params\" :{\n        \"tx\":\"6sTENqXfk3gahxkJbEPsmX9eJTEFZRSRw83cRJqoHWBiaeAhVbz9QV4i6SLd6Dek4eLsojeR8FbT3arFtsGz9ycpHFaWHLX69edJPEmj2tPApsEqsFd7wDVp7fFxkG6HmySR\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avax.issueTx\",\n    \"params\": {\n        \"tx\": \"6sTENqXfk3gahxkJbEPsmX9eJTEFZRSRw83cRJqoHWBiaeAhVbz9QV4i6SLd6Dek4eLsojeR8FbT3arFtsGz9ycpHFaWHLX69edJPEmj2tPApsEqsFd7wDVp7fFxkG6HmySR\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2083,7 +2051,7 @@
 								"avax"
 							]
 						},
-						"description": "Send a signed transaction to the network. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-issuetx)"
+						"description": "Send a signed transaction to the network. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.issuetx)"
 					},
 					"response": []
 				},
@@ -2115,7 +2083,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting the network ID. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-the-network-id)"
+						"description": "Gets the net version. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-the-network-id)"
 					},
 					"response": []
 				},
@@ -2211,7 +2179,7 @@
 								"rpc"
 							]
 						},
-						"description": "Listing accounts loaded in EVM node. [More info](https://docs.avax.network/v1.0/en/api/evm/#listing-accounts-loaded-in-evm-node)"
+						"description": "Listing accounts loaded in EVM node."
 					},
 					"response": []
 				},
@@ -2243,7 +2211,7 @@
 								"rpc"
 							]
 						},
-						"description": "Unlocking an account.\n\nPersonal accounts loaded directly in the EVM can only sign transactions while in an unlocked state. The example below unlocks the listed account address for 60 seconds. Note the associated passphrase `cheese` must be provided for authorization. [More info](https://docs.avax.network/v1.0/en/api/evm/#unlocking-an-account)"
+						"description": "Unlocking an account.\n\nPersonal accounts loaded directly in the EVM can only sign transactions while in an unlocked state. The example below unlocks the listed account address for 60 seconds. Note the associated passphrase `cheese` must be provided for authorization."
 					},
 					"response": []
 				},
@@ -2275,7 +2243,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting count of pending transactions.\n\n“Pending” transactions will be non-zero during periods of heavy network use. “Queued” transactions indicate transactions have been submitted with nonce values ahead of the next expected value for an address, which places them on hold until a transaction with the next expected nonce value is submitted. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-count-of-pending-transactions)"
+						"description": "Getting count of pending transactions.\n\n“Pending” transactions will be non-zero during periods of heavy network use. “Queued” transactions indicate transactions have been submitted with nonce values ahead of the next expected value for an address, which places them on hold until a transaction with the next expected nonce value is submitted."
 					},
 					"response": []
 				},
@@ -2307,7 +2275,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting the current client version. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-the-current-client-version)"
+						"description": "Gets the current client version."
 					},
 					"response": []
 				},
@@ -2339,7 +2307,7 @@
 								"rpc"
 							]
 						},
-						"description": "Calculate a cryptographic hash.\n\nThe input parameter contains hexidecimal bytes of arbitrary length. The example here uses the UTF-8 text string “snowstorm” converted to hexidecimal bytes. [More info](https://docs.avax.network/v1.0/en/api/evm/#calculate-a-cryptographic-hash)"
+						"description": "Calculate a cryptographic hash.\n\nThe input parameter contains hexidecimal bytes of arbitrary length. The example here uses the UTF-8 text string “snowstorm” converted to hexidecimal bytes."
 					},
 					"response": []
 				}

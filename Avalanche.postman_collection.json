@@ -3523,7 +3523,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDelegator\",\n    \"params\": {\n        \"nodeId\":\"{{avalancheNodeId}}\",\n        \"startTime\":1613347036,\n        \"endTime\":1631215800,\n        \"stakeAmount\":200000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addDelegator\",\n    \"params\": {\n        \"nodeId\": \"{{avalancheNodeId}}\",\n        \"startTime\": 1613347036,\n        \"endTime\": 1631215800,\n        \"stakeAmount\": 200000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3543,7 +3543,7 @@
 								"P"
 							]
 						},
-						"description": "Add a delegator to the Default Subnet.\n\nA delegator stakes AVAX and specifies a validator (the delegatee) to validate on their behalf. The delegatee has an increased probability of being sampled by other validators (weight) in proportion to the stake delegated to them.\n\nThe delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward (if any.)\n\nThe delegation period must be a subset of the perdiod that the delegatee validates the Default Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformadddefaultsubnetdelegator)"
+						"description": "Add a delegator to the Primary Network.\n\nA delegator stakes AVAX and specifies a validator (the delegatee) to validate on their behalf. The delegatee has an increased probability of being sampled by other validators (weight) in proportion to the stake delegated to them.\n\nThe delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward (if any.) A transaction that delegates stake has no fee.\n\nThe delegation period must be a subset of the period that the delegatee validates the Primary Network. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.adddelegator)"
 					},
 					"response": []
 				},
@@ -3554,7 +3554,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addValidator\",\n    \"params\": {\n        \"nodeID\":\"{{avalancheNodeId}}\",\n        \"startTime\":1606245174,\n        \"endTime\":1608837056,\n        \"stakeAmount\":2000000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"delegationFeeRate\":10,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addValidator\",\n    \"params\": {\n        \"nodeID\": \"{{avalancheNodeId}}\",\n        \"startTime\": 1606245174,\n        \"endTime\": 1608837056,\n        \"stakeAmount\": 2000000000000,\n        \"rewardAddress\": \"{{pchainAddress}}\",\n        \"delegationFeeRate\": 10,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3574,7 +3574,7 @@
 								"P"
 							]
 						},
-						"description": "Add a validator to the Default Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformadddefaultsubnetvalidator)"
+						"description": "Add a validator to the Primary Network. You must stake AVAX to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. \n\nThe validator’s probability of being sampled by other validators during consensus is in proportion to the amount of AVAX staked.\n\nThe validator charges a fee to delegators; the former receives a percentage of the delegator’s validation reward (if any.) The minimum delegation fee is 2%. A transaction that adds a validator has no fee.\nThe validation period must be between 2 weeks and 1 year.\n\nThere is a maximum total weight imposed on validators. This means that no validator will ever have more AVAX staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M AVAX)`. The total value on a validator is 3 million AVAX. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.addvalidator)"
 					},
 					"response": []
 				},
@@ -3585,7 +3585,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addSubnetValidator\",\n    \"params\": {\n        \"nodeID\":\"{{avalancheNodeId}}\",\n        \"subnetID\":\"{{avalancheSubnetId}}\",\n        \"startTime\":1625782598,\n        \"endTime\":1627078419,\n        \"weight\":20,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.addSubnetValidator\",\n    \"params\": {\n        \"nodeID\": \"{{avalancheNodeId}}\",\n        \"subnetID\": \"{{avalancheSubnetId}}\",\n        \"startTime\": 1625782598,\n        \"endTime\": 1627078419,\n        \"weight\": 20,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3605,7 +3605,7 @@
 								"P"
 							]
 						},
-						"description": "Add a validator to a Subnet other than the Default Subnet. The validator must validate the Default Subnet for the entire duration they validate this Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformaddnondefaultsubnetvalidator)"
+						"description": "Add a validator to a subnet other than the Primary Network. The Validator must validate the Primary Network for the entire duration they validate this subnet. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.addsubnetvalidator)"
 					},
 					"response": []
 				},
@@ -3636,7 +3636,7 @@
 								"P"
 							]
 						},
-						"description": "Add a delegator to the Default Subnet.\n\nA delegator stakes AVAX and specifies a validator (the delegatee) to validate on their behalf. The delegatee has an increased probability of being sampled by other validators (weight) in proportion to the stake delegated to them.\n\nThe delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward (if any.)\n\nThe delegation period must be a subset of the perdiod that the delegatee validates the Default Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformadddefaultsubnetdelegator)"
+						"description": "Create a new address controlled by the given user. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.createaddress)"
 					},
 					"response": []
 				},
@@ -3647,7 +3647,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.createBlockchain\",\n    \"params\" : {\n        \"vmID\":\"avm\",\n        \"SubnetID\":\"{{avalancheSubnetId}}\",\n        \"name\":\"My new avm\",\n        \"genesisData\": \"111115LHK2ZCYttSKPmmhsTDSuKiCkmHz65nUS1YqybvjirwGLLt376k1RwnTt72WobPqrG7rmgrKVqSq6VxDsKXYGnRmfhdLCEhsYjMegZmu5L5wEQ6k1BHu1QN6jk8kfoLQfAnKAxv8t5PmGJUwmTyoHz9aoDpfwJfkzjLut3TSSHzVLzH5bPoc5fYMwKGA1Zaps4Byo6rPpAZgiDG1jokzLuVXFDMxiFSDGHHA7uB5Nx2qaywtUXtyTi7JMYMKQMcB2UQEZbpPB9QcHg88mA8uzT2i5YYSiT9uZpAUjd6cfNiPedBJqi5AdjtcAmHvhszCS7YurbVmB4sHEP3PMxyKAHMnQ8dyxefQCDPUpSGMFp6qzomuXQSQeTi\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.createBlockchain\",\n    \"params\": {\n        \"vmID\": \"avm\",\n        \"subnetID\": \"{{avalancheSubnetId}}\",\n        \"name\": \"My new avm\",\n        \"genesisData\": \"111115LHK2ZCYttSKPmmhsTDSuKiCkmHz65nUS1YqybvjirwGLLt376k1RwnTt72WobPqrG7rmgrKVqSq6VxDsKXYGnRmfhdLCEhsYjMegZmu5L5wEQ6k1BHu1QN6jk8kfoLQfAnKAxv8t5PmGJUwmTyoHz9aoDpfwJfkzjLut3TSSHzVLzH5bPoc5fYMwKGA1Zaps4Byo6rPpAZgiDG1jokzLuVXFDMxiFSDGHHA7uB5Nx2qaywtUXtyTi7JMYMKQMcB2UQEZbpPB9QcHg88mA8uzT2i5YYSiT9uZpAUjd6cfNiPedBJqi5AdjtcAmHvhszCS7YurbVmB4sHEP3PMxyKAHMnQ8dyxefQCDPUpSGMFp6qzomuXQSQeTi\",\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3667,7 +3667,7 @@
 								"P"
 							]
 						},
-						"description": "Create a new blockchain. Currently only supports creation of new instances of the AVM and the Timestamp VM. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformcreateblockchain)"
+						"description": "Create a new blockchain. Currently only supports the creation of new instances of the AVM and the Timestamp VM. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.createblockchain)"
 					},
 					"response": []
 				},
@@ -3698,18 +3698,18 @@
 								"P"
 							]
 						},
-						"description": "Create an unsigned transaction to create a new Subnet.\n\nThe unsigned transaction must be signed with the key of the account paying the transaction fee.\n\nThe Subnet’s ID is the ID of the transaction that creates it (ie the response from `issueTx` when issuing the signed transaction. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformcreatesubnet)"
+						"description": "Create an unsigned transaction to create a new Subnet.\n\nThe unsigned transaction must be signed with the key of the account paying the transaction fee.\n\nThe Subnet’s ID is the ID of the transaction that creates it (ie the response from `issueTx` when issuing the signed transaction. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.createsubnet)"
 					},
 					"response": []
 				},
 				{
-					"name": "getBalance",
+					"name": "exportAVAX",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getBalance\",\n    \"params\" :{\n      \"address\":\"{{pchainAddress}}\"    \n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.exportAVAX\",\n    \"params\": {\n        \"to\": \"{{xchainAddress}}\",\n        \"amount\": 54321,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3729,7 +3729,69 @@
 								"P"
 							]
 						},
-						"description": "Get the balance of an asset controlled by a given address. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetbalance)"
+						"description": "Send AVAX from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s `avm.importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportavax)"
+					},
+					"response": []
+				},
+				{
+					"name": "exportKey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.exportKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"address\": \"{{pchainAddress}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `platform.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportkey)"
+					},
+					"response": []
+				},
+				{
+					"name": "getBalance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getBalance\",\n    \"params\": {\n        \"address\": \"{{pchainAddress}}\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Get the balance of AVAX controlled by a given address. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getbalance)"
 					},
 					"response": []
 				},
@@ -3760,7 +3822,7 @@
 								"P"
 							]
 						},
-						"description": "Get all the blockchains that exist (excluding the P-Chain). [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetblockchains)"
+						"description": "Get all the blockchains that exist (excluding the P-Chain). [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getblockchainstatus)"
 					},
 					"response": []
 				},
@@ -3771,7 +3833,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getBlockchainStatus\",\n    \"params\":{\n        \"blockchainID\":\"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getBlockchainStatus\",\n    \"params\": {\n        \"blockchainID\": \"{{avalanceBlockchainId}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3791,7 +3853,7 @@
 								"P"
 							]
 						},
-						"description": "Get the status of a blockchain. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetblockchainstatus)"
+						"description": "Get the status of a blockchain. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getblockchainstatus)"
 					},
 					"response": []
 				},
@@ -3802,7 +3864,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getCurrentSupply\",\n    \"params\": {}\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getCurrentSupply\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3822,7 +3884,7 @@
 								"P"
 							]
 						},
-						"description": "Returns an upper bound on the number of AVAX that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetcurrentsupply)"
+						"description": "Returns an upper bound on the number of AVAX that exist. This is an upper bound because it does not account for burnt tokens, including transaction fees. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getcurrentsupply)"
 					},
 					"response": []
 				},
@@ -3833,7 +3895,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getCurrentValidators\",\n    \"params\": {\n        \"subnetID\":null,\n        \"nodeIDs\":[]\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getCurrentValidators\",\n    \"params\": {\n        \"subnetID\": null,\n        \"nodeIDs\": []\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3853,7 +3915,7 @@
 								"P"
 							]
 						},
-						"description": "List the current validators of the given Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetcurrentvalidators)"
+						"description": "The top level field `delegators` was [deprecated](https://docs.avax.network/build/avalanchego-apis/deprecated-api-calls#getcurrentvalidators) as of v1.0.1, and removed in v1.0.6. Instead, each element of `validators` now contains the list of delegators for that validator. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getcurrentvalidators)"
 					},
 					"response": []
 				},
@@ -3864,7 +3926,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getHeight\",\n    \"params\": {}\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getHeight\",\n    \"params\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3884,7 +3946,7 @@
 								"P"
 							]
 						},
-						"description": "Returns the height of the last accepted block [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetheight)"
+						"description": "Returns the height of the last accepted block [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getheight)"
 					},
 					"response": []
 				},
@@ -3915,100 +3977,7 @@
 								"P"
 							]
 						},
-						"description": "Returns the minimum stake amount [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetminstake)"
-					},
-					"response": []
-				},
-				{
-					"name": "getRewardUTXOs",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getRewardUTXOs\",\n    \"params\" :{\n        \"txID\":\"2nmH8LithVbdjaXsxVQCQfXtzN9hBbmebrsaEYnLM9T32Uy2Y4\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"P"
-							]
-						},
-						"description": "Returns the UTXOs that were rewarded after the provided transaction's staking or delegation period ended."
-					},
-					"response": []
-				},
-				{
-					"name": "getStake",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getStake\",\n    \"params\": {\n        \"addresses\": [\"{{pchainAddress}}\"]\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"P"
-							]
-						},
-						"description": "Returns the staked amount for an array of addresses [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetstake)"
-					},
-					"response": []
-				},
-				{
-					"name": "getTxStatus",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getTxStatus\",\n    \"params\": {\n        \"txID\": \"23CLURk1Czf1aLui1VdcuWSiDeFskfp3Sn8TQG7t6NKfeQRYDj\",\n        \"includeReason\": true\n    },\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"P"
-							]
-						},
-						"description": "Returns the status of a platform chain transaction."
+						"description": "Get the minimum amount of AVAX required to validate the Primary Network and the minimum amount of AVAX that can be delegated. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getminstake)"
 					},
 					"response": []
 				},
@@ -4039,18 +4008,18 @@
 								"P"
 							]
 						},
-						"description": "List the validators in the pending validator set of the specified Subnet. Each validator is not currently validating the Subnet but will in the future. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetpendingvalidators)"
+						"description": "List the validators in the pending validator set of the specified Subnet. Each validator is not currently validating the Subnet but will in the future. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getpendingvalidators)"
 					},
 					"response": []
 				},
 				{
-					"name": "getStakingAssetID",
+					"name": "getRewardUTXOs",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getStakingAssetID\",\n    \"params\": {}\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getRewardUTXOs\",\n    \"params\": {\n        \"txID\": \"2nmH8LithVbdjaXsxVQCQfXtzN9hBbmebrsaEYnLM9T32Uy2Y4\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4070,7 +4039,38 @@
 								"P"
 							]
 						},
-						"description": "Retrieve an assetID for a subnet’s staking asset. Currently this always returns the Primary Network’s staking assetID. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetstakingassetid)"
+						"description": "Returns the UTXOs that were rewarded after the provided transaction's staking or delegation period ended. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getrewardutxos)"
+					},
+					"response": []
+				},
+				{
+					"name": "getStakingAssetID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getStakingAssetID\",\n    \"params\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Retrieve an assetID for a subnet’s staking asset. Currently, this only returns the Primary Network’s staking assetID. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getstakingassetid)"
 					},
 					"response": []
 				},
@@ -4101,7 +4101,69 @@
 								"P"
 							]
 						},
-						"description": "Get all the Subnets that exist. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformgetsubnets)"
+						"description": "Get info about the Subnets. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getsubnets)"
+					},
+					"response": []
+				},
+				{
+					"name": "getStake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getStake\",\n    \"params\": {\n        \"addresses\": [\n            \"{{pchainAddress}}\"\n        ],\n        \"encoding\": \"hex\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Get the amount of nAVAX staked by a set of addresses. The amount returned does not include staking rewards. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getstake)"
+					},
+					"response": []
+				},
+				{
+					"name": "getTotalStake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getTotalStake\",\n    \"params\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"ext",
+								"bc",
+								"P"
+							]
+						},
+						"description": "Get the total amount of nAVAX staked on the Primary Network. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.gettotalstake)"
 					},
 					"response": []
 				},
@@ -4132,7 +4194,7 @@
 								"P"
 							]
 						},
-						"description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+						"description": "Gets a transaction by its ID.\nOptional `encoding` parameter to specify the format for the returned transaction. Can be either \"cb58\" or \"hex\". Defaults to \"cb58\".[More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.gettx)"
 					},
 					"response": []
 				},
@@ -4143,7 +4205,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getTxStatus\",\n    \"params\" :{\n        \"txID\":\"2C3AVShejyq6mLhEXvEGCnpaQi8tRwudBhSbT34hFiytffEFoe\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.getTxStatus\",\n    \"params\": {\n        \"txID\": \"23CLURk1Czf1aLui1VdcuWSiDeFskfp3Sn8TQG7t6NKfeQRYDj\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4163,7 +4225,7 @@
 								"P"
 							]
 						},
-						"description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+						"description": "Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.gettxstatus)"
 					},
 					"response": []
 				},
@@ -4194,7 +4256,7 @@
 								"P"
 							]
 						},
-						"description": "Get the UTXOs that reference a given address. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetutxos)"
+						"description": "Gets the UTXOs that reference a given set of addresses. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getutxos)"
 					},
 					"response": []
 				},
@@ -4205,7 +4267,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.getValidatorsAt\",\n    \"params\" :{\n        \"height\": 0,\n        \"subnetID\": \"11111111111111111111111111111111LpoYY\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.getValidatorsAt\",\n    \"params\": {\n        \"height\": 0,\n        \"subnetID\": \"11111111111111111111111111111111LpoYY\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4225,69 +4287,7 @@
 								"P"
 							]
 						},
-						"description": "Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform-getvalidatorsat)"
-					},
-					"response": []
-				},
-				{
-					"name": "exportAVAX",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.exportAVAX\",\n    \"params\": {\n        \"to\":\"{{xchainAddress}}\",\n        \"amount\":54321,\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\"\n    },\n    \"id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"P"
-							]
-						},
-						"description": "Send AVAX from an account on the C-Chain to an address on the X-Chain.\nThis transaction must be signed with the key of the account that the AVAX is sent from and which pays the transaction fee.\nAfter issuing this transaction, you must call the X-Chain’s `importAVA` method to complete the transfer. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformexportavax)"
-					},
-					"response": []
-				},
-				{
-					"name": "exportKey",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.exportKey\",\n    \"params\" :{\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"address\": \"{{pchainAddress}}\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/P",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"P"
-							]
-						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `platform.importKey`. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformexportkey)"
+						"description": "Get the validators and their weights of a subnet or the Primary Network at a given P-Chain height. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getvalidatorsat)"
 					},
 					"response": []
 				},
@@ -4318,7 +4318,7 @@
 								"P"
 							]
 						},
-						"description": "Complete a transfer of AVAX from the X-Chain to the C-Chain.\n\nBefore this method is called, you must call the X-Chain’s `exportAVAX` method to initiate the transfer. [More Info](https://docs.avax.network/v1.0/en/api/platform/#avmimportava)"
+						"description": "Complete a transfer of AVAX from the X-Chain to the C-Chain.\n\nBefore this method is called, you must call the X-Chain’s `exportAVAX` method to initiate the transfer. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.importavax)"
 					},
 					"response": []
 				},
@@ -4329,7 +4329,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.importKey\",\n    \"params\" :{\n        \"username\":\"{{avalancheUsername}}\",\n        \"password\":\"{{avalanchePassword}}\",\n        \"privateKey\":\"{{privkey}}\"\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.importKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"privateKey\": \"{{privkey}}\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4349,7 +4349,7 @@
 								"P"
 							]
 						},
-						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformimportkey)"
+						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.importkey)"
 					},
 					"response": []
 				},
@@ -4360,7 +4360,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.issueTx\",\n    \"params\": {\n        \"tx\":\"111Bit5JNASbJyTLrd2kWkYRoc96swEWoWdmEhuGAFK3rCAyTnTzomuFwgx1SCUdUE71KbtXPnqj93KGr3CeftpPN37kVyqBaAQ5xaDjr7wVBTUYi9iV7kYJnHF61yovViJF74mJJy7WWQKeRMDRTiPuii5gsd11gtNahCCsKbm9seJtk2h1wAPZn9M1eL84CGVPnLUiLP\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.issueTx\",\n    \"params\": {\n        \"tx\": \"0xd33150a3f3783f29084eee4e12098f3ef707557f8deb916677a9af68e05613b7\",\n        \"encoding\": \"hex\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4380,7 +4380,7 @@
 								"P"
 							]
 						},
-						"description": "Issue a transaction to the Platform Chain. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformissuetx)"
+						"description": "Issue a transaction to the Platform Chain. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.issuetx)"
 					},
 					"response": []
 				},
@@ -4411,7 +4411,7 @@
 								"P"
 							]
 						},
-						"description": "List the addresses controlled by the given user. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformlistaddresses)"
+						"description": "List the addresses controlled by the given user. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.listaddresses)"
 					},
 					"response": []
 				},
@@ -4422,7 +4422,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\":\"2.0\",\n    \"id\"     :1,\n    \"method\" :\"platform.sampleValidators\",\n    \"params\" :{\n        \"size\":2\n    }\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"platform.sampleValidators\",\n    \"params\": {\n        \"size\": 2\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4442,7 +4442,7 @@
 								"P"
 							]
 						},
-						"description": "Sample validators from the specified Subnet. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformsamplevalidators)"
+						"description": "Sample validators from the specified Subnet. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.samplevalidators)"
 					},
 					"response": []
 				},
@@ -4473,7 +4473,7 @@
 								"P"
 							]
 						},
-						"description": "Get the Subnet that validates a given blockchain. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformvalidatedby)"
+						"description": "Get the Subnet that validates a given blockchain. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.validatedby)"
 					},
 					"response": []
 				},
@@ -4484,7 +4484,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.validates\",\n    \"params\": {\n        \"subnetID\":\"{{avalancheSubnetId}}\"\n    },\n    \"id\": 1\n}",
+							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"platform.validates\",\n    \"params\": {\n        \"subnetID\": \"{{avalancheSubnetId}}\"\n    },\n    \"id\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4504,7 +4504,7 @@
 								"P"
 							]
 						},
-						"description": "Get the IDs of the blockchains a Subnet validates. [More info](https://docs.avax.network/v1.0/en/api/platform/#platformvalidates)"
+						"description": "Get the IDs of the blockchains a Subnet validates. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.validates)"
 					},
 					"response": []
 				}

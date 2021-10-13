@@ -34,7 +34,7 @@
 								"admin"
 							]
 						},
-						"description": "Assign an API an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-alias)"
+						"description": "Assign an API endpoint an alias, a different endpoint for the API. The original endpoint will still work. This change only affects this node; other nodes will not know about this alias. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-alias)"
 					},
 					"response": []
 				},
@@ -94,7 +94,7 @@
 								"admin"
 							]
 						},
-						"description": "Dump the mutex statistics of the node to the specified file. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-getchainaliases)"
+						"description": "Returns the aliases of the chain. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-getchainaliases)"
 					},
 					"response": []
 				},
@@ -154,7 +154,7 @@
 								"admin"
 							]
 						},
-						"description": "Dump the mutex statistics of the node to the specified file. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-lockprofile)"
+						"description": "Writes a profile of mutex statistics to `lock.profile`. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-lockprofile)"
 					},
 					"response": []
 				},
@@ -184,7 +184,7 @@
 								"admin"
 							]
 						},
-						"description": "Dump the mutex statistics of the node to the specified file. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-memoryprofile)"
+						"description": "Writes a memory profile of the to `mem.profile`. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-memoryprofile)"
 					},
 					"response": []
 				},
@@ -244,7 +244,7 @@
 								"admin"
 							]
 						},
-						"description": "Start profiling the CPU utilization of the node. Will write the profile to the specified file on stop. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-startcpuprofiler)"
+						"description": "Start profiling the CPU utilization of the node. To stop, call `admin.stopCPUProfiler`. On stop, writes the profile to `cpu.profile`. [More info](https://docs.avax.network/build/avalanchego-apis/admin-api#admin-startcpuprofiler)"
 					},
 					"response": []
 				},
@@ -340,7 +340,7 @@
 								"auth"
 							]
 						},
-						"description": "Revoke a previously generated token. The given token will no longer grant access to any endpoint.\nIf the token is invalid, does nothing. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-revoketoken)"
+						"description": "Revoke a previously generated token. The given token will no longer grant access to any endpoint. If the token is invalid, does nothing. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-revoketoken)"
 					},
 					"response": []
 				},
@@ -370,7 +370,7 @@
 								"auth"
 							]
 						},
-						"description": "Change this node's authorization token password. Any authorization tokens created under an old password will become invalid. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-changepassword)"
+						"description": "Change this node’s authorization token password. Any authorization tokens created under an old password will become invalid. [More info](https://docs.avax.network/build/avalanchego-apis/auth-api#auth-changepassword)"
 					},
 					"response": []
 				}
@@ -500,7 +500,7 @@
 								"X"
 							]
 						},
-						"description": "Mint units of a variable-cap asset created with `avm.createVariableCapAsset`.) [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mint)"
+						"description": "Mint units of a variable-cap asset created with [`avm.createVariableCapAsset`](exchange-chain-x-chain-api.md#avm-createvariablecapasset). [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mint)"
 					},
 					"response": []
 				},
@@ -531,7 +531,7 @@
 								"X"
 							]
 						},
-						"description": "Create a new variable-cap, fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `createMintTx`, `signMintTx` and `issueTx`. The asset can be sent with `avm.send`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-createvariablecapasset)"
+						"description": "Create a new variable-cap, fungible asset. No units of the asset exist at initialization. Minters can mint units of this asset using `avm.mint`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-createvariablecapasset)"
 					},
 					"response": []
 				},
@@ -624,7 +624,7 @@
 								"X"
 							]
 						},
-						"description": "Mint non-fungible tokens which were created with `avm.createNFTAsset`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mintnft)"
+						"description": "Mint non-fungible tokens which were created with [`avm.createNFTAsset`](exchange-chain-x-chain-api.md#avm-createnftasset). [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-mintnft)"
 					},
 					"response": []
 				},
@@ -655,7 +655,7 @@
 								"X"
 							]
 						},
-						"description": "Send a non-AVAX asset from the X-Chain to the C-Chain or P-Chain. After calling this method, you must call the destination chain’s `import` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-export)"
+						"description": "Send a non-AVAX from the X-Chain to the P-Chain or C-Chain. After calling this method, you must call [`avax.import`](contract-chain-c-chain-api.md#avax-import) on the C-Chain to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-export)"
 					},
 					"response": []
 				},
@@ -686,7 +686,7 @@
 								"X"
 							]
 						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-exportkey)"
+						"description": "Get the private key that controls a given address. The returned private key can be added to a user with [`avm.importKey`](exchange-chain-x-chain-api.md#avm-importkey). [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-exportkey)"
 					},
 					"response": []
 				},
@@ -903,7 +903,7 @@
 								"X"
 							]
 						},
-						"description": "Returns the specified transaction [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-gettx)"
+						"description": "Returns the specified transaction. The `encoding` parameter sets the format of the returned transaction. Can be, `cb58`, `hex` or `json`. Defaults to cb58. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-gettx)"
 					},
 					"response": []
 				},
@@ -965,7 +965,7 @@
 								"X"
 							]
 						},
-						"description": "Get the UTXOs that reference a given address. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-getutxos)"
+						"description": "Gets the UTXOs that reference a given address. If sourceChain is specified, then it will retrieve the atomic UTXOs exported from that chain to the X Chain. [More info](https://docs.avax.network/build/apis/exchange-chain-x-chain-api#avm-getutxos)"
 					},
 					"response": []
 				},
@@ -996,7 +996,7 @@
 								"X"
 							]
 						},
-						"description": "Finalize a transfer of AVAX from the P-Chain or C-Chain to the X-Chain. \n\nBefore this method is called, you must call the P-Chain’s `platform.exportAVAX` or C-Chain’s `avax.export` method to initiate the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-import)"
+						"description": "Finalize a transfer of AVAX from the P-Chain or C-Chain to the X-Chain. Before this method is called, you must call the P-Chain’s [`platform.exportAVAX`](platform-chain-p-chain-api.md#platform-exportavax) or C-Chain’s [`avax.export`](contract-chain-c-chain-api.md#avax-export) method to initiate the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-import)"
 					},
 					"response": []
 				},
@@ -1039,37 +1039,6 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.importKey\",\n    \"params\": {\n        \"username\": \"{{avalancheUsername}}\",\n        \"password\": \"{{avalanchePassword}}\",\n        \"privateKey\": \"{{privkey}}\"\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{protocol}}://{{host}}:{{port}}/ext/bc/X",
-							"protocol": "{{protocol}}",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"ext",
-								"bc",
-								"X"
-							]
-						},
-						"description": "Give a user control over an address by providing the private key that controls the address. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-importkey)"
-					},
-					"response": []
-				},
-				{
-					"name": "issueTx",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"avm.issueTx\",\n    \"params\": {\n        \"tx\": \"22zd7kFnVjtHfhVJwHbxPcpgorYH5CFrqet56A1wwRdtCzKfPy\",\n        \"encoding\": \"hex\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1182,7 +1151,7 @@
 								"X"
 							]
 						},
-						"description": "Sends multiple transfers of `amount` of `assetID`, to a specified address from a list of owned addresses.\n[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-sendmultiple)"
+						"description": "Sends multiple transfers of `amount` of `assetID`, to a specified address from a list of owned addresses. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#avm-sendmultiple)"
 					},
 					"response": []
 				},
@@ -1245,7 +1214,7 @@
 								"wallet"
 							]
 						},
-						"description": "Send a signed transaction to the network and assume the tx will be accepted. encoding specifies the format of the signed transaction. Can be either \"cb58\" or \"hex\". Defaults to \"cb58\".[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-issuetx)"
+						"description": "Send a signed transaction to the network and assume the tx will be accepted. `encoding` specifies the format of the signed transaction. Can be either `cb58` or `hex`. Defaults to `cb58`. This call is made to the wallet API endpoint: `/ext/bc/X/wallet` [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-issuetx)"
 					},
 					"response": []
 				},
@@ -1277,7 +1246,7 @@
 								"wallet"
 							]
 						},
-						"description": "Send a quantity of an asset to an address and assume the tx will be accepted so that future calls can use the modified UTXO set.[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-send)"
+						"description": "Send a quantity of an asset to an address and assume the tx will be accepted so that future calls can use the modified UTXO set. This call is made to the wallet API endpoint: `/ext/bc/X/wallet`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-send)"
 					},
 					"response": []
 				},
@@ -1309,7 +1278,7 @@
 								"wallet"
 							]
 						},
-						"description": "Send multiple transfers of `amount` of `assetID`, to a specified address from a list of owned of addresses and assume the tx will be accepted so that future calls can use the modified UTXO set.\n[More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-sendmultiple)"
+						"description": "Send multiple transfers of `amount` of `assetID`, to a specified address from a list of owned of addresses and assume the tx will be accepted so that future calls can use the modified UTXO set. This call is made to the wallet API endpoint: `/ext/bc/X/wallet`. [More info](https://docs.avax.network/build/avalanchego-apis/exchange-chain-x-chain-api#wallet-sendmultiple)"
 					},
 					"response": []
 				}
@@ -1411,7 +1380,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting the most recent block number. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_blocknumber)"
+						"description": "Get the most recent block number. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_blocknumber)"
 					},
 					"response": []
 				},
@@ -1443,7 +1412,7 @@
 								"rpc"
 							]
 						},
-						"description": "Call a contract. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_call)"
+						"description": "Make a call to a contract without paying gas. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_call)"
 					},
 					"response": []
 				},
@@ -1507,7 +1476,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting an account’s non-AVAX balance. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getassetbalance)"
+						"description": "In addition to the standard Ethereum APIs, Avalanche offers `eth_getAssetBalance` to retrieve the balance of first class Avalanche Native Tokens on the C-Chain (excluding AVAX, which must be fetched with `eth_getBalance`). [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getassetbalance)"
 					},
 					"response": []
 				},
@@ -1539,7 +1508,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting an account’s AVAX balance. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBalance)"
+						"description": "Get the AVAX balance. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBalance)"
 					},
 					"response": []
 				},
@@ -1603,7 +1572,7 @@
 								"rpc"
 							]
 						},
-						"description": "Get an account’s transaction count to be used as a nonce. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getTransactionCount)"
+						"description": "Retrieve the number of transactions to be used as a nonce. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getTransactionCount)"
 					},
 					"response": []
 				},
@@ -1635,7 +1604,7 @@
 								"rpc"
 							]
 						},
-						"description": "Send a pre-signed transaction. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_sendRawTransaction)"
+						"description": "Broadcast a pre-signed transaction. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_sendRawTransaction)"
 					},
 					"response": []
 				},
@@ -1667,7 +1636,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting a block by hash. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBlockByHash)"
+						"description": "Get a block by hash. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#eth_getBlockByHash)"
 					},
 					"response": []
 				},
@@ -1699,7 +1668,7 @@
 								"rpc"
 							]
 						},
-						"description": "Getting a block by number. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-block-by-number)"
+						"description": "Get a block by number. [More info](https://docs.avax.network/v1.0/en/api/evm/#getting-a-block-by-number)"
 					},
 					"response": []
 				},
@@ -1795,7 +1764,7 @@
 								"avax"
 							]
 						},
-						"description": "Returns the specified transaction [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
+						"description": "Gets a transaction by its ID. Optional encoding parameter to specify the format for the returned transaction. Can be either `cb58` or `hex`. Defaults to `cb58`. [More info](https://docs.avax.network/v1.0/en/api/avm/#avmgetbalance)"
 					},
 					"response": []
 				},
@@ -1859,7 +1828,7 @@
 								"avax"
 							]
 						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.export)"
+						"description": "Export an asset from the C-Chain to the X-Chain. After calling this method, you must call [`avm.import`](exchange-chain-x-chain-api.md#avm-import) on the X-Chain to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.export)"
 					},
 					"response": []
 				},
@@ -1891,7 +1860,7 @@
 								"avax"
 							]
 						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `avm.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.exportkey)"
+						"description": "Get the private key that controls a given address. The returned private key can be added to a user with `avax.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.exportkey)"
 					},
 					"response": []
 				},
@@ -1955,7 +1924,7 @@
 								"avax"
 							]
 						},
-						"description": "Send AVAX from the X-Chain to an account on the P-Chain.\nAfter calling this method, you must call the P-Chain’s `importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.import)"
+						"description": "Finalize the transfer of a non-AVAX or AVAX from the X-Chain to the C-Chain. Before this method is called, you must call the X-Chain's [`avm.export`](exchange-chain-x-chain-api.md#avm-export) method to initiate the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.import)"
 					},
 					"response": []
 				},
@@ -2019,7 +1988,7 @@
 								"avax"
 							]
 						},
-						"description": "Send a signed transaction to the network. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.issuetx)"
+						"description": "Send a signed transaction to the network. `encoding` specifies the format of the signed transaction. Can be either `cb58` or `hex`. Defaults to `cb58`. [More info](https://docs.avax.network/build/avalanchego-apis/contract-chain-c-chain-api#avax.issuetx)"
 					},
 					"response": []
 				},
@@ -2311,7 +2280,7 @@
 								"health"
 							]
 						},
-						"description": "Get health check on this node. [More info](https://docs.avax.network/build/avalanchego-apis/health-api#health.health)"
+						"description": "The node runs a set of health checks every 30 seconds, including a health check for each chain. This method returns the last set of health check results. [More info](https://docs.avax.network/build/avalanchego-apis/health-api#health.health)"
 					},
 					"response": []
 				}
@@ -3013,7 +2982,7 @@
 								"info"
 							]
 						},
-						"description": "Given a blockchain’s alias, get its ID. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getblockchainid)"
+						"description": "Given a blockchain’s alias, get its ID. (See [`admin.aliasChain`](admin-api.md#admin-aliaschain)). [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getblockchainid)"
 					},
 					"response": []
 				},
@@ -3103,7 +3072,7 @@
 								"info"
 							]
 						},
-						"description": "Get the name of the network this node is participating in. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnodeid)"
+						"description": "Get the ID of this node. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.getnodeid)"
 					},
 					"response": []
 				},
@@ -3253,7 +3222,7 @@
 								"info"
 							]
 						},
-						"description": "Get the transaction fee of the network. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.gettxfee)"
+						"description": "Get the fees of the network. [More info](https://docs.avax.network/build/avalanchego-apis/info-api#info.gettxfee)"
 					},
 					"response": []
 				}
@@ -3415,7 +3384,7 @@
 								"keystore"
 							]
 						},
-						"description": "Export a user. The user can be imported to another node with `keystore.importUser`. The user’s password remains encrypted. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.exportuser)"
+						"description": "Export a user. The user can be imported to another node with [`keystore.importUser`](keystore-api.md#keystore-importuser). The user’s password remains encrypted. [More info](https://docs.avax.network/build/avalanchego-apis/keystore-api#keystore.exportuser)"
 					},
 					"response": []
 				},
@@ -3543,7 +3512,7 @@
 								"P"
 							]
 						},
-						"description": "Add a delegator to the Primary Network.\n\nA delegator stakes AVAX and specifies a validator (the delegatee) to validate on their behalf. The delegatee has an increased probability of being sampled by other validators (weight) in proportion to the stake delegated to them.\n\nThe delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward (if any.) A transaction that delegates stake has no fee.\n\nThe delegation period must be a subset of the period that the delegatee validates the Primary Network. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.adddelegator)"
+						"description": "Add a delegator to the Primary Network.\n A delegator stakes AVAX and specifies a validator the delegatee to validate on their behalf. The delegatee has an increased probability of being sampled by other validators weight in proportion to the stake delegated to them.\n The delegatee charges a fee to the delegator; the former receives a percentage of the delegator’s validation reward if any. A transaction that delegates stake has no fee.\n The delegation period must be a subset of the period that the delegatee validates the Primary Network.\n Note that once you issue the transaction to add a node as a delegator, there is no way to change the parameters. **You can’t remove a stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://support.avalabs.org/en/collections/2618154-developer-faq) or ask for help on [Discord.](https://chat.avalabs.org/) [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.adddelegator)"
 					},
 					"response": []
 				},
@@ -3574,7 +3543,7 @@
 								"P"
 							]
 						},
-						"description": "Add a validator to the Primary Network. You must stake AVAX to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. \n\nThe validator’s probability of being sampled by other validators during consensus is in proportion to the amount of AVAX staked.\n\nThe validator charges a fee to delegators; the former receives a percentage of the delegator’s validation reward (if any.) The minimum delegation fee is 2%. A transaction that adds a validator has no fee.\nThe validation period must be between 2 weeks and 1 year.\n\nThere is a maximum total weight imposed on validators. This means that no validator will ever have more AVAX staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M AVAX)`. The total value on a validator is 3 million AVAX. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.addvalidator)"
+						"description": "Add a validator to the Primary Network. You must stake AVAX to do this. If the node is sufficiently correct and responsive while validating, you receive a reward when end of staking period is reached. The validator’s probability of being sampled by other validators during consensus is in proportion to the amount of AVAX staked.\n The validator charges a fee to delegators; the former receives a percentage of the delegator’s validation reward if any. The minimum delegation fee is 2%. A transaction that adds a validator has no fee.\n The validation period must be between 2 weeks and 1 year.\n There is a maximum total weight imposed on validators. This means that no validator will ever have more AVAX staked and delegated to it than this value. This value will initially be set to `min(5 * amount staked, 3M AVAX)`. The total value on a validator is 3 million AVAX.\n Note that once you issue the transaction to add a node as a validator, there is no way to change the parameters. **You can’t remove stake early or change the stake amount, node ID, or reward address.** Please make sure you’re using the correct values. If you’re not sure, check out our [Developer FAQ](https://support.avalabs.org/en/collections/2618154-developer-faq) or ask for help on [Discord.](https://chat.avalabs.org/) [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.addvalidator)"
 					},
 					"response": []
 				},
@@ -3729,7 +3698,7 @@
 								"P"
 							]
 						},
-						"description": "Send AVAX from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s `avm.importAVAX` method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportavax)"
+						"description": "Send AVAX from an address on the P-Chain to an address on the X-Chain. After issuing this transaction, you must call the X-Chain’s [`avm.importAVAX`](exchange-chain-x-chain-api.md#avm-importavax) method to complete the transfer. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportavax)"
 					},
 					"response": []
 				},
@@ -3760,7 +3729,7 @@
 								"P"
 							]
 						},
-						"description": "Get the private key that controls a given address.\nThe returned private key can be added to a user with `platform.importKey`. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportkey)"
+						"description": "Get the private key that controls a given address. The returned private key can be added to a user with [`platform.importKey`](platform-chain-p-chain-api.md#platform-importkey). [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.exportkey)"
 					},
 					"response": []
 				},
@@ -3915,7 +3884,7 @@
 								"P"
 							]
 						},
-						"description": "The top level field `delegators` was [deprecated](https://docs.avax.network/build/avalanchego-apis/deprecated-api-calls#getcurrentvalidators) as of v1.0.1, and removed in v1.0.6. Instead, each element of `validators` now contains the list of delegators for that validator. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getcurrentvalidators)"
+						"description": "List the current validators of the given Subnet.\n The top level field `delegators` was [deprecated](deprecated-api-calls.md#getcurrentvalidators) as of v1.0.1, and removed in v1.0.6. Instead, each element of `validators` now contains the list of delegators for that validator. [More info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.getcurrentvalidators)"
 					},
 					"response": []
 				},
@@ -4225,7 +4194,7 @@
 								"P"
 							]
 						},
-						"description": "Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.gettxstatus)"
+						"description": "Gets a transaction’s status by its ID. If the transaction was dropped, response will include a `reason` field with more information why the transaction was dropped. See [here](deprecated-api-calls.md#gettxstatus) for notes on previous behavior. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.gettxstatus)"
 					},
 					"response": []
 				},
@@ -4318,7 +4287,7 @@
 								"P"
 							]
 						},
-						"description": "Complete a transfer of AVAX from the X-Chain to the C-Chain.\n\nBefore this method is called, you must call the X-Chain’s `exportAVAX` method to initiate the transfer. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.importavax)"
+						"description": "Complete a transfer of AVAX from the X-Chain to the P-Chain. Before this method is called, you must call the X-Chain’s [`avm.exportAVAX`](exchange-chain-x-chain-api.md#avm-exportavax) method to initiate the transfer. [More Info](https://docs.avax.network/build/avalanchego-apis/platform-chain-p-chain-api#platform.importavax)"
 					},
 					"response": []
 				},

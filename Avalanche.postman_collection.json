@@ -2358,6 +2358,38 @@
 							"response": []
 						},
 						{
+							"name": "getContainerByID",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByID\",\n    \"params\": {\n        \"containerID\": \"GwNpFGDWwzBxiq2Goqr3FqTyT3toyGr7LMCUG3tm72wt39xDZ\",\n        \"encoding\": \"hex\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/ext/index/X/tx",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"ext",
+										"index",
+										"X",
+										"tx"
+									]
+								},
+								"description": "Get container by id. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index.getcontainerbyid)"
+							},
+							"response": []
+						},
+						{
 							"name": "getContainerRange",
 							"request": {
 								"method": "POST",
@@ -2519,6 +2551,38 @@
 									]
 								},
 								"description": "Get container by index. The first container accepted is at index 0, the second is at index 1, etc. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
+							},
+							"response": []
+						},
+						{
+							"name": "getContainerByID",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByID\",\n    \"params\": {\n        \"containerID\": \"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\": \"hex\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/ext/index/X/vtx",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"ext",
+										"index",
+										"X",
+										"vtx"
+									]
+								},
+								"description": "Get container by ID. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
 							},
 							"response": []
 						},
@@ -2688,6 +2752,38 @@
 							"response": []
 						},
 						{
+							"name": "getContainerByID",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByID\",\n    \"params\": {\n        \"containerID\": \"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\": \"hex\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/ext/index/P/block",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"ext",
+										"index",
+										"P",
+										"block"
+									]
+								},
+								"description": "Get container by ID. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
+							},
+							"response": []
+						},
+						{
 							"name": "getContainerRange",
 							"request": {
 								"method": "POST",
@@ -2849,6 +2945,38 @@
 									]
 								},
 								"description": "Get container by index. The first container accepted is at index 0, the second is at index 1, etc. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
+							},
+							"response": []
+						},
+						{
+							"name": "getContainerByID Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"jsonrpc\": \"2.0\",\n    \"id\": 1,\n    \"method\": \"index.getContainerByID\",\n    \"params\": {\n        \"containerID\": \"6fXf5hncR8LXvwtM8iezFQBpK5cubV6y1dWgpJCcNyzGB1EzY\",\n        \"encoding\": \"hex\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{protocol}}://{{host}}:{{port}}/ext/index/C/block",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"ext",
+										"index",
+										"C",
+										"block"
+									]
+								},
+								"description": "Get container by ID. [More info](https://docs.avax.network/build/avalanchego-apis/index-api#index-getcontainerbyindex)"
 							},
 							"response": []
 						},
